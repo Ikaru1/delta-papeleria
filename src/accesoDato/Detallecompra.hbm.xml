@@ -1,0 +1,24 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 20-jun-2014 23:45:39 by Hibernate Tools 3.2.1.GA -->
+<hibernate-mapping>
+    <class name="accesoDato.Detallecompra" table="detallecompra" catalog="papeleriadelta">
+        <id name="id" type="int">
+            <column name="id" />
+            <generator class="assigned" />
+        </id>
+        <many-to-one name="compra" class="accesoDato.Compra" fetch="select" lazy = "false">
+            <column name="idcompra" not-null="true" />
+        </many-to-one>
+        <many-to-one name="producto" class="accesoDato.Producto" fetch="select" lazy = "false">
+            <column name="idproducto" not-null="true" />
+        </many-to-one>
+        <property name="preciounidad" type="int">
+            <column name="preciounidad" not-null="true" />
+        </property>
+        <property name="cantidad" type="int">
+            <column name="cantidad" not-null="true" />
+        </property>
+    </class>
+</hibernate-mapping>
