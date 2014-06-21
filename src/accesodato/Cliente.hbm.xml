@@ -1,0 +1,21 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 20-jun-2014 23:45:39 by Hibernate Tools 3.2.1.GA -->
+<hibernate-mapping>
+    <class name="accesoDato.Cliente" table="cliente" catalog="papeleriadelta">
+        <id name="id" type="java.lang.Integer">
+            <column name="id" />
+            <generator class="identity" />
+        </id>
+        <property name="nombre" type="string">
+            <column name="nombre" length="100" not-null="true" />
+        </property>
+        <set name="ventas" inverse="true">
+            <key>
+                <column name="idcliente" />
+            </key>
+            <one-to-many class="accesoDato.Venta" />
+        </set>
+    </class>
+</hibernate-mapping>
